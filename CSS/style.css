@@ -1,0 +1,29 @@
+.logo{
+    /* background-image: url("/images/logo.png"); */
+    float: left;
+    height: 45px;
+    width: 60px;    
+    filter: invert(100%);
+}
+
+.form-group{
+   padding: 13px;
+    text-align: left;
+   
+}
+.card{
+    box-shadow: 5px 5px 10px rgb(163, 162, 162);
+}
+
+.container{
+    height: 90vh;
+}
+
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 32px;
+    border-radius: 15px;
+    font-size: 15px;
+    text-align: center;
+    padding: 4px 0px;
+}
