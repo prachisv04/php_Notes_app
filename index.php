@@ -1,7 +1,7 @@
 <?php
     $insert=false;
     $update = false;
-$delete = false;
+    $delete = false;
         // Connect to database 
 
         $servername = "localhost";
@@ -58,11 +58,10 @@ $delete = false;
             }
         
         
-        if(isset($_POST['del']))
+        if(isset($_POST['deleteId'] ))
           {
-            $sno = $_POST['delId'];
-            
-            $sql = "DELETE FROM `Notes` WHERE `Note_id`='$sno'";
+            $id = $_POST["deleteId"];
+            $sql = "DELETE FROM `Notes` WHERE `notes`.`Note_id`='".substr($id,1)."'";
                 $result = mysqli_query($conn, $sql);
                     
                       if($result){ 
@@ -96,6 +95,7 @@ $delete = false;
 </head>
 
 <body class="bg-dark">
+  <!-- EDIT MODAL -->
   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -103,7 +103,7 @@ $delete = false;
           <h1 class="modal-title fs-5" id="editModalTitle">Edit Note</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="/TO_DO/index.php" method="POST">
+        <form action="/NOTES/index.php" method="POST">
         <div class="modal-body">
           <div class="card-body">
             
@@ -127,6 +127,36 @@ $delete = false;
       </div>
     </div>
   </div>
+
+  <!-- DELETE MODAL -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalTitle">Edit Note</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/NOTES/index.php" method="POST">
+        <div class="modal-body">
+          <div class="card-body">
+            
+            <div class="mb-3"> 
+            <input type="text" hidden  class="form-control" id="deleteId" name="deleteId">
+            </div>
+
+            <div class="mb-3">
+              <label for="edittitle" class="form-label">Are you sure you want to delete ?</label>
+            </div>
+           
+          </div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -168,7 +198,7 @@ $delete = false;
       <div class="col my-5 pt-3">
         <div class="card ">
          
-          <form action="/TO_DO/index.php" method="POST">
+          <form action="/NOTES/index.php" method="POST">
             <div class="form-group mb-2 mt-2">
               <label for="title">Note Title</label>
               <input type="text" class="form-control" id="title" name="title" aria-describedby="note_title">
@@ -206,15 +236,10 @@ $delete = false;
                   <td>".$row['Description']."</td>
                   <td>
                     <button class='edit btn btn-primary btn-circle btn-sm' data-bs-toggle='modal'  data-bs-target='#editModal'><i class='bi bi-pencil' id=e".$row['Note_id']."></i></button>
-                  </td>
-                  <td>
-                  <form method='POST'>
-                    <input type='hidden' id='delId' name='delId'>
-                    <button  class='delete btn btn-danger btn-circle btn-sm' >
-                    <i class='bi bi-x-circle' name='del' id=d".$row['Note_id']."></i>
-                    </button>
-                   </form>
-                  </td>
+                    </td>
+                    <td>
+                    <button class='delete btn btn-danger btn-circle btn-sm' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='bi bi-trash' id=d".$row['Note_id']."></i></button>
+                    </td>
                 </tr>";
               }
               
@@ -263,15 +288,18 @@ $delete = false;
           });// foreach end
 
           //delete selected row
+          
           deletes = document.getElementsByClassName("delete");
           Array.from(deletes).forEach((element)=>{
             element.addEventListener("click",(e)=>{
-
-              editId = e.target.id.substr(1);
-              delId.value = editId;
+           
+              deleteId.value = e.target.id;
               console.log("id is",e.target.id);
+              
             })//event listener
           });// foreach end
+          
+
       </script>
    
 </body>
