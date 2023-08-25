@@ -28,12 +28,16 @@
               $result = mysqli_query($conn, $sql);
             
               if($result){ 
-                  $insert = true;
-                  $_POST["title"]="";
-                  $_POST["desc"]="";
+               
+                  header("Location:http://localhost/NOTES/");
               }
               else{
-                  echo "The record was not inserted  because of this error ---> ". mysqli_error($conn);
+                echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                <strong><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bug' viewBox='0 0 16 16'>
+                <path d='M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z'/>
+              </svg></strong> we are facing some issue while adding your note... please try again.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+              </div>";
               } 
               }
           }
@@ -48,11 +52,15 @@
             
               if($result){ 
                   $update = true;
-                  $_POST["edittitle"]="";
-                  $_POST["editdesc"]="";
+                  header("Location:http://localhost/NOTES/");
               }
               else{
-                  echo "The record was not inserted  because of this error ---> ". mysqli_error($conn);
+                echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                <strong><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bug' viewBox='0 0 16 16'>
+                <path d='M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z'/>
+              </svg></strong> we are sorry but note could not be updated... please try again.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+              </div>";
               } 
               }
             }
@@ -66,9 +74,15 @@
                     
                       if($result){ 
                           $delete = true;
+                          header("Location:http://localhost/NOTES/");
                       }
                       else{
-                          echo "The record was not deleted  because of this error ---> ". mysqli_error($conn);
+                          echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                          <strong><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bug' viewBox='0 0 16 16'>
+                          <path d='M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z'/>
+                        </svg></strong> we are sorry but note could not be deleted... please try again.
+                          <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>";
                       } 
           }
         
@@ -81,8 +95,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-do List</title>
-  <link rel="shortcut icon" href="images/list-check.svg" type="image/x-icon" />
+  <title>myNotes</title>
+  <link rel="shortcut icon" href="images/notes.svg" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link href="CSS/style.css" rel="stylesheet">
@@ -96,7 +110,7 @@
 
 <body class="bg-dark">
   <!-- EDIT MODAL -->
-  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -162,7 +176,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <div class="logocontainer">
-          <img class="logo" src="images/list-check.svg" alt="TODO">
+          <img class="logo" src="images/notes.svg" alt="Notes">
         </div>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -172,7 +186,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item ">
-            <a class="nav-link active " aria-current="page" href="#">Home</a>
+            <a class="nav-link active " aria-current="page" href="/NOTES/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="#">About</a>
@@ -195,8 +209,8 @@
 
   <div class="container text-center">
     <div class="row align-items-start ">
-      <div class="col my-5 pt-3">
-        <div class="card ">
+      <div class="col">
+        <div class="card mt-5">
          
           <form action="/NOTES/index.php" method="POST">
             <div class="form-group mb-2 mt-2">
@@ -212,8 +226,8 @@
           </form>
         </div>
       </div>
-      <div class="col-8 bg-dark text-light pt-5">
-       <div class="container">
+      <div class="col-9 bg-dark text-light">
+       <!-- <div class="container"> -->
           <table class="table table-light " id="myTable">
             <thead>
               <tr>
@@ -236,17 +250,17 @@
                   <td>".$row['Description']."</td>
                   <td>
                     <button class='edit btn btn-primary btn-circle btn-sm' data-bs-toggle='modal'  data-bs-target='#editModal'><i class='bi bi-pencil' id=e".$row['Note_id']."></i></button>
-                    </td>
-                    <td>
+                  </td>
+                  <td>
                     <button class='delete btn btn-danger btn-circle btn-sm' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='bi bi-trash' id=d".$row['Note_id']."></i></button>
-                    </td>
+                  </td>
                 </tr>";
               }
               
              ?>
               </tbody>
               </table>
-            </div>
+            <!-- </div> -->
 
             </div>
 
